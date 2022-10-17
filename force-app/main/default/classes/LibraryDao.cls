@@ -1,12 +1,7 @@
 public with sharing class LibraryDao {
     public static List<Subscription__c> getActiveSubscriptions(Id readerId) {
-        return [SELECT Name, Id, reader__r.Subscription_Type__c FROM Subscription__c WHERE Reader__r.Id = :readerId AND Reader__r.Subscription_Type__c != 'one-time'];
+        return [SELECT Name, Id, Reader__r.Subscription_Type__c FROM Subscription__c WHERE Reader__r.Id = :readerId AND Reader__r.Subscription_Type__c != 'one-time'];
     }
-
-
-
-//     LibraryDao class:
-
 
     public static List<Subscription__c> getAllSubscriptions(Integer recordsLimit, Integer offset) {
         return [SELECT Name, Id FROM Subscription__c LIMIT :recordsLimit OFFSET :offset];
@@ -42,5 +37,4 @@ public with sharing class LibraryDao {
         }
         return setOfIds;
     }
-
 }
