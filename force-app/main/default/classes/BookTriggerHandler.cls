@@ -11,16 +11,18 @@ public with sharing class BookTriggerHandler {
         for(Reader__c reader : relatedReaders) {
             reader.Debtor__c = true;
         }   
+        //create list of readers to update, who doesn't have true
         
         update relatedReaders;
     }
 
     private static List<Reader__c> getReadersRelatedToBooks(Set<Id> bookIds) {
-        return [SELECT Id, Debtor__c 
-        FROM Reader__c 
-        WHERE Id IN 
-            (SELECT Reader__c 
-            FROM Subscription__c 
-            WHERE Book__c IN :bookIds)];
+        return [
+            SELECT Id, Debtor__c 
+            FROM Reader__c 
+            WHERE Id IN 
+                (SELECT Reader__c 
+                 FROM Subscription__c 
+                 WHERE Book__c IN :bookIds)];
     }
 }

@@ -12,7 +12,7 @@ public with sharing class SubscriptionTriggerHandler {
         for(Subscription__c newSub : newSubscriptions) {
             for(Subscription__c exSub : existingSubscriptions) {
                 if(newSub.Reader__c == exSub.Reader__c && newSub.Book__c == exSub.Book__c) {
-                    newSub.addError('Duplicate found');
+                    newSub.addError('You cannot add a Subscription for the same Reader and Book');
                 }
             }
         }

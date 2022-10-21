@@ -9,7 +9,7 @@ public with sharing class Utils {
             } 
             recordsByFieldName.get(fieldValue).add(listElem);
         }
-        System.debug(recordsByFieldName);
+        
         return recordsByFieldName;
     }
 
@@ -23,7 +23,6 @@ public with sharing class Utils {
             } 
             result.get(groupByField).add(fieldValueFromSobject);
         }
-        System.debug(result);
         return result;
     }
 
@@ -35,7 +34,6 @@ public with sharing class Utils {
                 result.add(String.valueOf(listElem.get(fieldApiName)));    
             }
         }
-        System.debug(result);
         return result;
     }
 
