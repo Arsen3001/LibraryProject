@@ -34,7 +34,6 @@ public with sharing class UtilsTest {
 
         Assert.isTrue(result.containsKey('Subscription_Type__c'));
         Assert.isTrue(result.get('Subscription_Type__c').size() > 0);
-        System.debug(result);
     }
 
     @isTest 

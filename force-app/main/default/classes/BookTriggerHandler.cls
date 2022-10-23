@@ -11,7 +11,6 @@ public with sharing class BookTriggerHandler {
         for(Reader__c reader : relatedReaders) {
             reader.Debtor__c = true;
         }   
-        //create list of readers to update, who doesn't have true
         
         update relatedReaders;
     }

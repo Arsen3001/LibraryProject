@@ -23,7 +23,7 @@ public with sharing class LibraryDaoTest {
         Test.startTest();
         result = LibraryDao.getActiveSubscriptions(readerId);
         Test.stopTest();
-
+        
         Assert.isTrue(result.size() == 2);
     }
 
@@ -35,7 +35,6 @@ public with sharing class LibraryDaoTest {
         result = LibraryDao.getAllSubscriptions(5, 3);
         Test.stopTest();
         Assert.isTrue(result.size() == 5);
-        
     }
 
     @isTest

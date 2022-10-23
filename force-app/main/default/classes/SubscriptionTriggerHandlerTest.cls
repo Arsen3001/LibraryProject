@@ -11,7 +11,7 @@ public with sharing class SubscriptionTriggerHandlerTest {
     @isTest 
     static void checkSubDuplicatesTest() {
         String errorMessage = '';
-        
+        //Boolean exception true - check in assert
         try {
             List<Reader__c> readers = [
                 SELECT Id
