@@ -1,0 +1,21 @@
+<aura:component controller="PopularBooksController" implements="flexipage:availableForAllPageTypes">
+
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List" default="[
+        {label: 'Book name', fieldName: 'Name', type: 'text'},
+        {label: 'Author', fieldName: 'Author__c', type: 'text'},
+        {label: 'Quantity', fieldName: 'Quantity__c', type: 'number'},
+    ]"/>
+
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+    
+    <lightning:card>
+        <lightning:datatable
+            showRowNumberColumn="true"        
+            keyField="Id"
+            data="{! v.data }"
+            columns="{! v.columns }"
+            hideCheckboxColumn="true"/>
+    </lightning:card>
+
+</aura:component>	
