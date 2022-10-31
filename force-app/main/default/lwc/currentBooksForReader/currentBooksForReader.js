@@ -1,6 +1,10 @@
 import { LightningElement, api, wire } from 'lwc';
 import getCurrentBookForReader from '@salesforce/apex/CurrentBooksForReaderController.getCurrentBookForReader';
+import updateReader from '@salesforce/apex/CurrentBooksForReaderController.updateReader';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+import {getRecordNotifyChange } from 'lightning/uiRecordApi';
+
+
 
 
 const columns = [
@@ -27,8 +31,14 @@ export default class CurrentBooksForReader extends LightningElement {
     }
 
     handleClick() {
-        this.showToast('Error', 'error', 'Refresh integration is not yet configured')
-    }
+        updateReader({ readerId: this.recordId })
+        .then(result => {
+            getRecordNotifyChange([{recordId: this.recordId}]);
+        })
+        .catch(error => {
+            this.error = error;
+            this.showToast('Error', 'error', error.body.message);
+        });    }
 
     showToast(title, variant, message) {
         const event = new ShowToastEvent({
