@@ -27,6 +27,10 @@ public with sharing class CurrentBooksForReaderController {
     }
 
     private static Reader__c getReader(String readerId) {
-        return [SELECT Id, Name, Email__c, Debtor__c, Subscription_Type__c, Last_Sync_Date__c FROM Reader__c WHERE Id = :readerId];
+        return [
+            SELECT Id, Name, Email__c, Debtor__c, Subscription_Type__c, Last_Sync_Date__c 
+            FROM Reader__c 
+            WHERE Id = :readerId
+        ];
     }
 }

@@ -4,8 +4,3 @@ public with sharing class OrderMoreBooksScheduler implements Schedulable {
         Id batchId = Database.executeBatch(orderBooksSchedulable);   
     }
 }
-
-
-
-
- 

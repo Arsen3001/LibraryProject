@@ -21,5 +21,4 @@ public class OrderMoreBooksBatch implements
 
     public void finish(Database.BatchableContext bc) {
     }
-}  
-
+}

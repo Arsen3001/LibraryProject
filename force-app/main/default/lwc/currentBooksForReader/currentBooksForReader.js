@@ -2,7 +2,7 @@ import { LightningElement, api, wire } from 'lwc';
 import getCurrentBookForReader from '@salesforce/apex/CurrentBooksForReaderController.getCurrentBookForReader';
 import updateReader from '@salesforce/apex/CurrentBooksForReaderController.updateReader';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
-import {getRecordNotifyChange } from 'lightning/uiRecordApi';
+import { getRecordNotifyChange } from 'lightning/uiRecordApi';
 
 
 
