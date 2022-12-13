@@ -1,0 +1,18 @@
+<template >
+    <template if:true = {listRecs}>
+        <lightning-card title={Title}>    
+            <lightning-datatable
+                key-field="id"
+                data={listRecs}
+                columns={columns}
+                items = [];
+                hide-checkbox-column="true"
+                show-row-number-column="true"
+                >
+            </lightning-datatable>
+        </lightning-card>    
+    </template>
+    <template if:true = {error}> 
+        {error}
+    </template>
+</template>

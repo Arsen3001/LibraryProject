@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default, lightning__HomePage">
+            <property name="ObjectName" type="String" datasource="Account,Contact,Opportunity,Lead, Book__c" default="Book__c"/>
+            <property name="Fields" type="String" default="Name, Author__c, Quantity__c"/>
+            <property name="TableColumns" type="String" default="[{label:'Name', fieldName:'Name', sortable:true}, {label:'Author', fieldName:'Author__c', sortable:true}, {label:'Quantity', fieldName:'Quantity__c', sortable:true}]"/>
+            <!-- ,{type:'action',typeAttributes:{rowActions:[{label:'View',name:'view'},{label:'Edit',name:'edit'} -->
+            <property name="Title" type="String" default="Account List"/>
+            <!-- <property name="RecordPage" type="String"/> -->
+            <!-- <property name="ObjectIcon" type="String" default="standard:account"/> -->
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
